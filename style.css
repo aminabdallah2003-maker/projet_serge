@@ -1032,6 +1032,20 @@ footer {
 
   .hamburger { display: flex; }
 
+  /* Tighten nav spacing and pin hamburger so it doesn't get pushed off-screen */
+  .nav-inner { padding: 0 12px; }
+  .nav-logo img { height: 44px; }
+  .hamburger {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1600;
+  }
+
+  /* Make sure nav-links (when open) appear under the navbar without covering hamburger */
+  .nav-links.open { top: 72px; padding-top: 16px; }
+
   .intro-grid { grid-template-columns: 1fr; gap: 40px; }
   .intro-image { max-height: 320px; }
   .intro-image img { height: 320px; }
@@ -1056,3 +1070,50 @@ footer {
   .section-wrapper { padding: 56px 16px; }
   .intro-stats { flex-direction: column; gap: 16px; }
 }
+
+/* ── BACK TO TOP BUTTON ─────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 92px;
+  z-index: 1100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--green-mid);
+  color: rgb(254, 254, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(26,61,43,0.18);
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.back-to-top i { font-size: 1rem; }
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Ensure floating UI elements sit above mobile menu and stay reachable */
+.float-whatsapp, .back-to-top, .hamburger {
+  z-index: 1500;
+}
+
+/* Tighter right offsets on small screens to avoid being pushed off-screen */
+@media (max-width: 768px) {
+  .float-whatsapp { right: 16px; bottom: 18px; }
+  .back-to-top { right: 76px; bottom: 18px; }
+  .hamburger { position: relative; right: 0; }
+}
+
+@media (max-width: 480px) {
+  .float-whatsapp { right: 12px; bottom: 14px; width:52px; height:52px; }
+  .back-to-top { right: 72px; bottom: 14px; }
+}
+

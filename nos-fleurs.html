@@ -7,349 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="./style.css">
-  <style>
-        /* ── CSS VARIABLES ── */
-    :root {
-      --green-deep:  #1a3d2b;
-      --green-mid:   #2d6a4f;
-      --green-light: #52b788;
-      --green-pale:  #d8f3dc;
-      --gold:        #c9a84c;
-      --ivory:       #faf8f3;
-      --white:       #ffffff;
-      --gray-100:    #f5f5f0;
-      --gray-200:    #e8e6e0;
-      --gray-500:    #888880;
-      --gray-800:    #2a2a25;
-      --whatsapp:    #25d366;
-
-      /* Famille colors */
-      --famille-amour:   #e8647a;
-      --famille-sante:   #52b788;
-      --famille-force:   #2d6a4f;
-      --famille-paix:    #74b3ce;
-      --famille-energie: #c9a84c;
-      --famille-gazon:   #7ec850;
-      --famille-bouquet: #d4a0c0;
-      --famille-dalette: #a08060;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--ivory);
-      color: var(--gray-800);
-      line-height: 1.7;
-    }
-
-    img { display: block; max-width: 100%; }
-    a { text-decoration: none; color: inherit; }
-
-    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
-    em { font-style: italic; color: var(--green-light); }
-
-    /* ── NAVBAR ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-200);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .nav-inner {
-      max-width: 1280px; margin: 0 auto;
-      padding: 0 32px; height: 70px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: nowrap;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; font-weight: 700;
-      color: var(--green-deep);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-logo img { height: 48px; }
-    .nav-links { gap: 6px; display: flex; align-items: center; list-style: none; }
-    .nav-link {
-      font-size: 0.92rem; font-weight: 500;
-      padding: 8px 18px; border-radius: 50px;
-      color: var(--gray-800);
-      transition: all 0.25s ease; cursor: pointer;
-    }
-    .nav-link:hover, .nav-link.active {
-      background: var(--green-pale); color: var(--green-deep);
-    }
-
-    /* ── PAGE HERO ── */
-    .hero {
-      position: relative;
-      height: 380px;
-      background: url('./assets/imgnos_fleurs.jpeg') center/cover;
-      display: flex; align-items: center;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(10,40,22,0.82) 0%, rgba(10,40,22,0.4) 100%);
-    }
-    .hero-content {
-      position: relative; z-index: 1;
-      padding: 0 10%; max-width: 700px;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: var(--gold); color: var(--green-deep);
-      font-size: 0.75rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 2px;
-      padding: 6px 18px; border-radius: 50px;
-      margin-bottom: 18px;
-    }
-    .hero-content h1 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      color: white; margin-bottom: 12px;
-    }
-    .hero-content p { color: rgba(255,255,255,0.8); font-size: 1.05rem; }
-
-    /* ── WRAPPER ── */
-    .wrapper { max-width: 1280px; margin: 0 auto; padding: 72px 32px; }
-
-    /* ── INTRO ── */
-    .intro-bar {
-      text-align: center;
-      background: var(--green-deep);
-      color: white;
-      padding: 28px 32px;
-    }
-    .intro-bar p {
-      max-width: 760px; margin: 0 auto;
-      font-size: 1.0rem; color: rgba(255,255,255,0.85);
-      line-height: 1.8;
-    }
-    .intro-bar strong { color: var(--gold); }
-
-    /* ── LEGEND (famille badges) ── */
-    .legend {
-      display: flex; flex-wrap: wrap;
-      gap: 12px; justify-content: center;
-      padding: 32px 32px 0;
-    }
-    .legend-item {
-      display: flex; align-items: center; gap: 8px;
-      background: white;
-      border-radius: 50px;
-      padding: 8px 20px;
-      font-size: 0.85rem; font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    }
-    .legend-dot {
-      width: 12px; height: 12px;
-      border-radius: 50%; flex-shrink: 0;
-    }
-
-    /* ── FILTER TABS ── */
-    .filter-section {
-      padding: 32px 32px 0;
-      max-width: 1280px; margin: 0 auto;
-    }
-    .filter-tabs {
-      display: flex; gap: 10px;
-      flex-wrap: wrap; justify-content: center;
-      margin-bottom: 0;
-    }
-    .filter-btn {
-      padding: 10px 26px;
-      border-radius: 50px;
-      border: 2px solid var(--gray-200);
-      background: transparent; color: var(--gray-800);
-      font-size: 0.88rem; font-weight: 600;
-      cursor: pointer; transition: all 0.25s ease;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--green-mid);
-      border-color: var(--green-mid);
-      color: white;
-    }
-
-    /* ── SECTION TITLE ── */
-    .section-head {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 36px; margin-top: 64px;
-    }
-    .section-head h2 {
-      font-size: 1.7rem; color: var(--green-deep);
-      white-space: nowrap;
-    }
-    .section-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(to right, var(--gray-200), transparent);
-    }
-    .famille-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 18px; border-radius: 50px;
-      font-size: 0.8rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1px;
-      color: white; white-space: nowrap;
-    }
-
-    /* ── GRID ── */
-    .flowers-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
-    }
-
-    /* ── FLOWER CARD ── */
-    .flower-card {
-      background: var(--white);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex; flex-direction: column;
-      animation: cardIn 0.5s ease both;
-    }
-    .flower-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.14);
-    }
-    .flower-card.hidden { display: none; }
-
-    @keyframes cardIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* image zone */
-    .card-img {
-      position: relative;
-      height: 280px; overflow: hidden;
-    }
-    .card-img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .flower-card:hover .card-img img { transform: scale(1.08); }
-
-    .card-famille-badge {
-      position: absolute; top: 12px; left: 12px;
-      color: white; font-size: 0.7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1px;
-      padding: 5px 12px; border-radius: 50px;
-    }
-
-    /* body */
-    .card-body {
-      padding: 22px 20px 20px;
-      flex: 1; display: flex; flex-direction: column;
-      gap: 12px;
-    }
-
-    .card-names h3 {
-      font-size: 1.05rem; color: var(--green-deep);
-      margin-bottom: 3px;
-    }
-    .card-names .latin {
-      font-style: italic; font-size: 0.82rem;
-      color: var(--gray-500);
-      font-family: 'Playfair Display', serif;
-    }
-
-    /* vertus tabs */
-    .vertus-tabs {
-      display: flex; gap: 6px;
-    }
-    .vtab {
-      flex: 1; padding: 5px 8px;
-      border-radius: 8px; border: 1.5px solid var(--gray-200);
-      background: transparent; color: var(--gray-500);
-      font-size: 0.75rem; font-weight: 600;
-      cursor: pointer; transition: all 0.2s;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .vtab.active { background: var(--green-pale); border-color: var(--green-light); color: var(--green-deep); }
-
-    .vertus-content {
-      font-size: 0.84rem; color: var(--gray-800);
-      line-height: 1.65; flex: 1;
-      min-height: 80px;
-    }
-    .vertu-panel { display: none; }
-    .vertu-panel.active { display: block; }
-
-    .vertu-icon { margin-right: 5px; }
-
-    /* divider */
-    .card-divider {
-      height: 1px; background: var(--gray-100);
-      margin: 4px 0;
-    }
-
-    /* buy button */
-    .btn-whatsapp {
-      display: flex; align-items: center; justify-content: center;
-      gap: 8px;
-      background: var(--whatsapp); color: white;
-      padding: 12px 20px; border-radius: 50px;
-      font-size: 0.9rem; font-weight: 700;
-      transition: all 0.25s ease;
-      margin-top: auto;
-    }
-    .btn-whatsapp:hover {
-      background: #1da851;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37,211,102,0.35);
-    }
-    .btn-whatsapp i { font-size: 1.1rem; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--green-deep);
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 40px 24px;
-      margin-top: 80px;
-    }
-    footer .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; color: white;
-      display: block; margin-bottom: 8px;
-    }
-    footer a { color: var(--gold); }
-
-    /* Floating WA */
-    .float-wa {
-      position: fixed; bottom: 28px; right: 28px;
-      z-index: 900;
-      width: 58px; height: 58px;
-      background: var(--whatsapp); color: white;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      transition: all 0.25s ease;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-    .float-wa:hover { background: #1da851; transform: scale(1.1); animation: none; }
-    @keyframes pulse {
-      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-      50%      { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:1100px){ .flowers-grid{ grid-template-columns: repeat(3,1fr); } }
-    @media(max-width:768px){
-      .flowers-grid{ grid-template-columns: repeat(2,1fr); }
-      .nav-links { display: none !important; }
-      .wrapper { padding: 48px 16px; }
-    }
-    @media(max-width:480px){ .flowers-grid{ grid-template-columns: 1fr; } }
-
-  </style>
+  <link rel="stylesheet" href="./nos_style.css">
 </head>
 <body>
 
@@ -359,7 +17,7 @@
     <a href="index.html" class="nav-logo">
       <img src="assets/logo.png" alt="logo"
            onerror="this.style.display='none'"/>
-      L'Oasis Florale
+      <span>L'Oasis Florale</span>
     </a>
     <ul id="navLinks" class="nav-links">
       <li><a href="index.html#accueil"  class="nav-link">Accueil</a></li>
@@ -403,15 +61,15 @@
 <!-- ══ FILTRES ══ -->
 <div class="filter-section">
   <div class="filter-tabs">
-    <button class="filter-btn active" onclick="filterCards('all',this)">🌿 Toutes</button>
-    <button class="filter-btn" onclick="filterCards('amour',this)">🌸 Amour &amp; Beauté</button>
-    <button class="filter-btn" onclick="filterCards('sante',this)">💚 Santé &amp; Guérison</button>
-    <button class="filter-btn" onclick="filterCards('force',this)">🛡️ Force &amp; Protection</button>
-    <button class="filter-btn" onclick="filterCards('paix',this)">🕊️ Paix &amp; Harmonie</button>
-    <button class="filter-btn" onclick="filterCards('energie',this)">⚡ Énergie &amp; Vitalité</button>
-    <button class="filter-btn" onclick="filterCards('gazon',this)">🌱 Gazons</button>
-    <button class="filter-btn" onclick="filterCards('bouquet',this)">💐 Bouquets &amp; Gerbes</button>
-    <button class="filter-btn" onclick="filterCards('dalette',this)">🪨 Dallettes &amp; Pots</button>
+    <button class="filter-btn active" onclick="filterCards('all',this)"> Toutes</button>
+    <button class="filter-btn" onclick="filterCards('amour',this)"> Amour &amp; Beauté</button>
+    <button class="filter-btn" onclick="filterCards('sante',this)"> Santé &amp; Guérison</button>
+    <button class="filter-btn" onclick="filterCards('force',this)"> Force &amp; Protection</button>
+    <button class="filter-btn" onclick="filterCards('paix',this)">Paix &amp; Harmonie</button>
+    <button class="filter-btn" onclick="filterCards('energie',this)"> Énergie &amp; Vitalité</button>
+    <button class="filter-btn" onclick="filterCards('gazon',this)"> Gazons</button>
+    <button class="filter-btn" onclick="filterCards('bouquet',this)"> Bouquets &amp; Gerbes</button>
+    <button class="filter-btn" onclick="filterCards('dalette',this)">Dallettes &amp; Pots</button>
   </div>
 </div>
 
@@ -432,89 +90,6 @@
   </div>
 </div>
 
-<style>
-  .search-banner {
-    background: linear-gradient(135deg, #1a3d2b 0%, #2d6a4f 60%, #52b788 100%);
-    padding: 0 24px;
-    margin: 28px 0 0;
-  }
-  .search-banner-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 28px 32px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .search-banner-icon {
-    font-size: 2.8rem;
-    flex-shrink: 0;
-    animation: bounce-icon 2s ease-in-out infinite;
-  }
-  @keyframes bounce-icon {
-    0%,100% { transform: translateY(0); }
-    50%      { transform: translateY(-6px); }
-  }
-  .search-banner-text {
-    flex: 1;
-    min-width: 200px;
-  }
-  .search-banner-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-    font-weight: 700;
-    color: #f0d080;
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-  .search-banner-sub {
-    font-size: clamp(0.82rem, 1.8vw, 0.95rem);
-    color: rgba(255,255,255,0.88);
-    line-height: 1.6;
-  }
-  .search-banner-sub strong {
-    color: #f0d080;
-    font-weight: 700;
-  }
-  .search-banner-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #25d366;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-    transition: all 0.25s ease;
-    animation: pulse-banner 2.5s ease-in-out infinite;
-  }
-  .search-banner-btn i { font-size: 1.3rem; }
-  .search-banner-btn:hover {
-    background: #1da851;
-    transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 8px 28px rgba(37,211,102,0.6);
-    animation: none;
-  }
-  @keyframes pulse-banner {
-    0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
-    50%      { box-shadow: 0 4px 32px rgba(37,211,102,0.8); }
-  }
-  @media (max-width: 600px) {
-    .search-banner-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 22px 16px;
-      gap: 16px;
-    }
-    .search-banner-btn { width: 100%; justify-content: center; }
-  }
-</style>
 
 <!-- ══ CATALOGUE ══ -->
 <div class="wrapper">
@@ -527,37 +102,6 @@
   </div>
   <div class="flowers-grid">
 
-    <!-- 1. Camélia Rose -->
-    <div class="flower-card" data-famille="amour">
-      <div class="card-img">
-        <img src="assets/ADHE6320.WEBP" alt="Camélia Rose"/>
-        <span class="card-famille-badge" style="background:#e8647a"> Amour &amp; Beauté</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names">
-          <h3>Camélia Rose</h3>
-          <div class="latin">Camellia japonica</div>
-        </div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','ADHE')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','ADHE')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="ADHE-naturelle" class="vertu-panel active">
-            <span class="vertu-icon"></span>Riche en antioxydants, l'extrait de camélia hydrate et protège la peau. Utilisé en cosmétique asiatique depuis des siècles. Ses feuilles ont des propriétés anti-inflammatoires douces.
-          </div>
-          <div id="ADHE-spirituelle" class="vertu-panel">
-            <span class="vertu-icon"></span>Symbole de beauté parfaite et d'amour durable au Japon et en Chine. Fleur des femmes nobles, elle représente la grâce, la fidélité et le raffinement de l'âme.
-          </div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp"
-           href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+la+plante+%3A+Cam%C3%A9lia+Rose+(Camellia+japonica)"
-           target="_blank">
-          <i class="fab fa-whatsapp"></i> Commander
-        </a>
-      </div>
-    </div>
 
     <!-- 2. Rose Orange-Rouge -->
     <div class="flower-card" data-famille="amour">
@@ -902,37 +446,6 @@
     </div>
 
 
-    <!-- 13. Sansevieria cylindrica -->
-    <div class="flower-card" data-famille="force">
-      <div class="card-img">
-        <img src="assets/CPOE1993.WEBP" alt="Sansevieria Cylindrica"/>
-        <span class="card-famille-badge" style="background:#2d6a4f"> Force &amp; Protection</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names">
-          <h3>Sansevieria Cylindrique</h3>
-          <div class="latin">Sansevieria cylindrica</div>
-        </div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','CPOE')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','CPOE')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="CPOE-naturelle" class="vertu-panel active">
-            <span class="vertu-icon"></span>Comme toutes les sanseviéras, elle purifie l'air en absorbant les composés organiques volatils (COV). Libère de l'oxygène 24h/24. Sa robustesse en fait une plante zéro stress : elle tolère l'oubli d'arrosage plusieurs semaines.
-          </div>
-          <div id="CPOE-spirituelle" class="vertu-panel">
-            <span class="vertu-icon"></span>Ses tiges cylindriques et droites symbolisent la droiture, l'intégrité et la rectitude morale. En Feng Shui, elle génère une énergie ascendante (Chi yang) qui stimule l'ambition et la clarté d'esprit. Excellente pour les bureaux.
-          </div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp"
-           href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+la+plante+%3A+Sansevieria+Cylindrique+(Sansevieria+cylindrica)"
-           target="_blank">
-          <i class="fab fa-whatsapp"></i> Commander
-        </a>
-      </div>
-    </div>
 
     <!-- 14. Euphorbia trigona grand (ECVJ) -->
     <div class="flower-card" data-famille="force">
@@ -1358,26 +871,6 @@
       </div>
     </div>
 
-    <!-- 25. Sansevieria Cylindrique éventail -->
-    <div class="flower-card" data-famille="force">
-      <div class="card-img">
-        <img src="assets/FUPH7052.WEBP" alt="Sansevieria Cylindrique éventail"/>
-        <span class="card-famille-badge" style="background:#2d6a4f"> Force &amp; Protection</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names"><h3>Sansevieria Éventail</h3><div class="latin">Sansevieria cylindrica 'Fan'</div></div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','FUPH')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','FUPH')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="FUPH-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Variante artistique de la Sansevieria cylindrica dont les tiges sont liées en éventail. Même puissance purificatrice d'air que l'espèce standard. Très décorative et sculpturale, idéale comme pièce maîtresse dans un salon moderne.</div>
-          <div id="FUPH-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Sa forme en éventail rappelle les rayons du soleil levant — symbole de victoire et de nouveau départ. En lithothérapie végétale africaine, cette forme rayonnante est associée à l'ouverture du chakra couronne et à la clarté mentale.</div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+%3A+Sansevieria+Éventail+(Sansevieria+cylindrica+Fan)" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-      </div>
-    </div>
 
     
 
@@ -1433,26 +926,6 @@
   </div>
   <div class="flowers-grid">
 
-    <!-- 24. Pelouse tropicale -->
-    <div class="flower-card" data-famille="paix">
-      <div class="card-img">
-        <img src="assets/FFKZ6634.WEBP" alt="Pelouse tropicale entretenue"/>
-        <span class="card-famille-badge" style="background:#74b3ce"> Paix &amp; Harmonie</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names"><h3>Pelouse Tropicale</h3><div class="latin">Cynodon dactylon</div></div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','FFKZ')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','FFKZ')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="FFKZ-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le chiendent (Cynodon dactylon) est le gazon tropical le plus résistant. Il supporte la chaleur intense de kara, nécessite peu d'eau et se regénère rapidement. Ses racines profondes luttent contre l'érosion et maintiennent la fraîcheur du sol.</div>
-          <div id="FFKZ-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Un gazon vert et bien entretenu est symbole universel de prospérité, de soin et d'harmonie. Marcher pieds nus sur l'herbe verte est une pratique de "mise à la terre" (earthing) reconnue pour réduire le stress et reconnecter l'homme à la nature.</div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+%3A+Pelouse+Tropicale+(Cynodon+dactylon)" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-      </div>
-    </div>
 
     <!-- 28. Papyrus -->
     <div class="flower-card" data-famille="paix">
@@ -1475,47 +948,6 @@
       </div>
     </div>
 
-    <!-- 37. Gazon fin savane -->
-    <div class="flower-card" data-famille="paix">
-      <div class="card-img">
-        <img src="assets/IMOI2661.WEBP" alt="Gazon fin savane"/>
-        <span class="card-famille-badge" style="background:#74b3ce"> Paix &amp; Harmonie</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names"><h3>Gazon Fin de Savane</h3><div class="latin">Aristida sp.</div></div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','IMOI')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','IMOI')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="IMOI-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Graminée robuste adaptée aux sols pauvres et secs d'Afrique de l'Ouest. Excellente pour couvrir de grandes surfaces rapidement et stabiliser les terrains. Requiert très peu d'entretien et résiste aux températures extrêmes.</div>
-          <div id="IMOI-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>L'herbe de savane évoque la liberté, l'espace et l'âme africaine dans son état le plus pur. Ses mouvements sous le vent symbolisent la fluidité, l'acceptation et la paix intérieure. Un espace naturel non maîtrisé rappelle l'humilité face à la nature.</div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+%3A+Gazon+Fin+de+Savane+(Aristida+sp.)" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-      </div>
-    </div>
-
-    <!-- 38. Gazon Saint-Augustin -->
-    <div class="flower-card" data-famille="paix">
-      <div class="card-img">
-        <img src="assets/IOWO9003.WEBP" alt="Gazon Saint-Augustin"/>
-        <span class="card-famille-badge" style="background:#74b3ce"> Paix &amp; Harmonie</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names"><h3>Gazon Saint-Augustin</h3><div class="latin">Stenotaphrum secundatum</div></div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','IOWO')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','IOWO')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="IOWO-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le gazon Saint-Augustin est le plus populaire en Afrique tropicale. Il supporte la chaleur, l'humidité et forme un tapis dense et vert foncé. Idéal pour les jardins résidentiels, cours d'école et espaces de réception en plein air.</div>
-          <div id="IOWO-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Un jardin bien engazonné crée un espace sacré de rassemblement familial et communautaire. Dans beaucoup de traditions africaines, c'est sur l'herbe verte que se font les libations, les prières aux ancêtres et les cérémonies de bénédiction de maison.</div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+%3A+Gazon+Saint-Augustin+(Stenotaphrum+secundatum)" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-      </div>
-    </div>
 
   </div>
 
@@ -2104,26 +1536,6 @@
   </div>
   <div class="flowers-grid">
 
-    <!-- 69. Kalanchoé Tubiflora -->
-    <div class="flower-card" data-famille="sante">
-      <div class="card-img">
-        <img src="assets/PQJM4534.WEBP" alt="Kalanchoé Tubiflora"/>
-        <span class="card-famille-badge" style="background:#52b788"> Santé &amp; Guérison</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names"><h3>Kalanchoé Tubulaire</h3><div class="latin">Kalanchoë tubiflora</div></div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','PQJM')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','PQJM')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="PQJM-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Succulente originale aux tiges cylindriques maculées portant de minuscules plantules à leurs extrémités. Des études scientifiques ont identifié des composés anticancéreux potentiels dans cette espèce. Utilisée en médecine traditionnelle malgache contre les douleurs articulaires.</div>
-          <div id="PQJM-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Ses tiges produisent spontanément de nouvelles vies à leurs pointes — symbole de la création continue et de l'abondance infinie. Elle enseigne que la vie trouve toujours un chemin et que même les situations difficiles portent en elles les graines d'un nouveau commencement.</div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+%3A+Kalanchoé+Tubulaire+(Kalanchoe+tubiflora)" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-      </div>
-    </div>
 
     <!-- 78. Plectranthus/Coléus vert-blanc -->
     <div class="flower-card" data-famille="sante">
@@ -2219,26 +1631,6 @@
       </div>
     </div>
 
-    <!-- 76. Sansevieria Laurentii déco (Rgqn) -->
-    <div class="flower-card" data-famille="force">
-      <div class="card-img">
-        <img src="assets/RGQN5773.WEBP" alt="Sansevieria Laurentii design pots colorés"/>
-        <span class="card-famille-badge" style="background:#2d6a4f"> Force &amp; Protection</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names"><h3>Sansevieria Laurentii Trio Design</h3><div class="latin">Sansevieria trifasciata 'Laurentii'</div></div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','RGQN')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','RGQN')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="RGQN-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Présentation trio en pots de designer colorés (blanc, métal, rouge) — une collection complète pour dynamiser n'importe quel espace. Chaque plant est à un stade de développement différent, illustrant la croissance progressive. Effet décoratif immédiat et durable.</div>
-          <div id="RGQN-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Trois Sanseviéras ensemble représentent la Trinité africaine : passé (ancêtres), présent (vivants), futur (descendants). Ce trio symbolise la continuité du lignage et la force collective. Trois pots différents montrent que la même force peut s'exprimer sous des formes diverses.</div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+%3A+Sansevieria+Laurentii+Trio+Design+(3+pots)" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-      </div>
-    </div>
 
   </div>
 
@@ -2449,26 +1841,6 @@
       </div>
     </div>
 
-    <!-- 80. Jardin paysagé gazon premium -->
-    <div class="flower-card" data-famille="paix">
-      <div class="card-img">
-        <img src="assets/SHJO1673.WEBP" alt="Jardin paysagé gazon premium"/>
-        <span class="card-famille-badge" style="background:#74b3ce"> Paix &amp; Harmonie</span>
-      </div>
-      <div class="card-body">
-        <div class="card-names"><h3>Jardin Paysagé Premium</h3><div class="latin">Réalisation complète d'espaces verts</div></div>
-        <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','SHJO')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','SHJO')"> Spirituelle</button>
-        </div>
-        <div class="vertus-content">
-          <div id="SHJO-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Réalisation clés en main de jardins paysagés : gazon premium, pas japonais, dalles décoratives et aménagement complet. Notre équipe transforme votre espace extérieur en un jardin de rêve fonctionnel et esthétique. Devis gratuit et personnalisé sur place.</div>
-          <div id="SHJO-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Un jardin bien conçu est un sanctuaire de paix et de ressourcement. L'espace vert aménagé avec intention crée un lieu de méditation naturelle où l'âme peut se déposer, souffler et se reconnecter à l'essentiel. C'est votre temple à ciel ouvert.</div>
-        </div>
-        <div class="card-divider"></div>
-        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+un+devis+pour+%3A+Jardin+Paysagé+Premium+(aménagement+complet)" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-      </div>
-    </div>
 
   </div>
 
@@ -2531,7 +1903,7 @@
 
   <!-- ─── FAMILLE : GAZONS ─── -->
   <div class="section-head famille-gazon-head" id="section-gazon">
-    <h2>🌱 Nos Gazons</h2>
+    <h2> Nos Gazons</h2>
     <div class="section-line"></div>
     <span class="famille-badge" style="background:#7ec850">3 types</span>
   </div>
@@ -2540,8 +1912,8 @@
     <!-- GAZON AMÉRICAIN -->
     <div class="flower-card" data-famille="gazon">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Gazon Américain"/>
-        <span class="card-famille-badge" style="background:#7ec850">🌱 Gazon</span>
+        <img src="./assets/Gazon américain.jpeg" alt="Gazon Américain"/>
+        <span class="card-famille-badge" style="background:#7ec850"> Gazon</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2549,8 +1921,8 @@
           <div class="latin">Cynodon dactylon 'Bermuda'</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ1')">🌿 Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ1')">✨ Spirituelle</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ1')"> Naturelle</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ1')"> Spirituelle</button>
         </div>
         <div class="vertus-content">
           <div id="GAZ1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le gazon américain (Bermuda) est l'une des espèces les plus résistantes au monde. Il supporte une chaleur intense, une sécheresse prolongée et un piétinement régulier. Ses racines profondes stabilisent les sols érodés et réduisent le ruissellement des eaux de pluie. Son tapis dense absorbe le CO₂ et produit de l'oxygène, rafraîchissant naturellement l'atmosphère de 3 à 5°C autour de lui.</div>
@@ -2564,8 +1936,8 @@
     <!-- GAZON CHINOIS -->
     <div class="flower-card" data-famille="gazon">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Gazon Chinois"/>
-        <span class="card-famille-badge" style="background:#7ec850">🌱 Gazon</span>
+        <img src="./assets/Gazon chinois naturel.jpeg" alt="Gazon Chinois"/>
+        <span class="card-famille-badge" style="background:#7ec850"> Gazon</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2573,8 +1945,8 @@
           <div class="latin">Zoysia japonica</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ2')">🌿 Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ2')">✨ Spirituelle</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ2')"> Naturelle</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ2')"> Spirituelle</button>
         </div>
         <div class="vertus-content">
           <div id="GAZ2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le gazon chinois (Zoysia) est réputé pour sa douceur exceptionnelle au toucher et sa densité remarquable qui étouffe naturellement les mauvaises herbes sans herbicide. Très tolérant à l'ombre partielle, il convient aux jardins ombragés. Sa croissance lente réduit la fréquence de tonte. Il résiste aux maladies fongiques et nécessite peu d'engrais, en faisant l'une des pelouses les plus écologiques disponibles.</div>
@@ -2588,8 +1960,8 @@
     <!-- GAZON FRANÇAIS -->
     <div class="flower-card" data-famille="gazon">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Gazon Français"/>
-        <span class="card-famille-badge" style="background:#7ec850">🌱 Gazon</span>
+        <img src="./assets/Gazon français ( paspaluim).jpeg" alt="Gazon Français"/>
+        <span class="card-famille-badge" style="background:#7ec850"> Gazon</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2597,8 +1969,8 @@
           <div class="latin">Festuca arundinacea</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ3')">🌿 Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ3')">✨ Spirituelle</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ3')"> Naturelle</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ3')"> Spirituelle</button>
         </div>
         <div class="vertus-content">
           <div id="GAZ3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le gazon français (Fétuque élevée) est le champion des pelouses sportives et décoratives. Son vert profond et intense est incomparable. Sa résistance aux piétinements intenses, aux sécheresses et aux fortes chaleurs en fait le gazon idéal pour les espaces polyvalents. Ses racines profondes de 60 à 90 cm lui permettent de trouver l'eau en profondeur. Reconnu pour ses propriétés de captation du carbone et de phytoremédiation des sols.</div>
@@ -2613,7 +1985,7 @@
 
   <!-- ─── FAMILLE : BOUQUETS & GERBES ─── -->
   <div class="section-head" id="section-bouquet">
-    <h2>💐 Bouquets &amp; Gerbes</h2>
+    <h2> Bouquets &amp; Gerbes</h2>
     <div class="section-line"></div>
     <span class="famille-badge" style="background:#d4a0c0">4 créations</span>
   </div>
@@ -2622,8 +1994,8 @@
     <!-- BOUQUET D'ARGENT -->
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1487530811015-780c23a8b4a5?w=600&q=80" alt="Bouquet d'Argent"/>
-        <span class="card-famille-badge" style="background:#d4a0c0">💐 Bouquet</span>
+        <img src="./assets/Bouquet d'argent.jpeg" alt="Bouquet d'Argent"/>
+        <span class="card-famille-badge" style="background:#d4a0c0"> Bouquet</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2631,8 +2003,8 @@
           <div class="latin">Création florale premium</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ1')">🌸 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ1')">✨ Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ1')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ1')"> Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="BOQ1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le bouquet d'argent est notre création florale haut de gamme. Composé de fleurs blanches et crème — roses blanches, lys, orchidées et gypsophile — dans un emballage argenté raffiné. Idéal pour les mariages, les anniversaires importants et les occasions d'exception. Chaque bouquet est assemblé à la main avec soin par nos artisans fleuristes, utilisant des fleurs fraîches du jour pour garantir une fraîcheur et une durée de vie maximales.</div>
@@ -2646,8 +2018,8 @@
     <!-- BOUQUET DE FLEURS NATURELLES -->
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=600&q=80" alt="Bouquet de Fleurs Naturelles"/>
-        <span class="card-famille-badge" style="background:#d4a0c0">💐 Bouquet</span>
+        <img src="./assets/Bouquet de fleurs naturelles.jpeg" alt="Bouquet de Fleurs Naturelles"/>
+        <span class="card-famille-badge" style="background:#d4a0c0"> Bouquet</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2655,8 +2027,8 @@
           <div class="latin">Fleurs fraîches de saison</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ2')">🌸 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ2')">✨ Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ2')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ2')"> Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="BOQ2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Notre bouquet naturel est une sélection de fleurs fraîches de saison, coupées le jour même de la livraison. Roses colorées, tournesols, gerberas, dahlias et verdure naturelle forment des compositions vibrantes et parfumées. Chaque bouquet est unique — assemblé selon la disponibilité des fleurs les plus fraîches du marché. Parfait pour les anniversaires, la Saint-Valentin, les fêtes des mères et toutes les occasions joyeuses.</div>
@@ -2670,8 +2042,8 @@
     <!-- BOUQUET DE FLEURS ARTIFICIELLES -->
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=600&q=80" alt="Bouquet de Fleurs Artificielles"/>
-        <span class="card-famille-badge" style="background:#d4a0c0">💐 Bouquet</span>
+        <img src="./assets/Bouquet de fleurs artificielles.jpeg" alt="Bouquet de Fleurs Artificielles"/>
+        <span class="card-famille-badge" style="background:#d4a0c0"> Bouquet</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2679,8 +2051,8 @@
           <div class="latin">Fleurs permanentes premium</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ3')">🌸 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ3')">✨ Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ3')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ3')"> Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="BOQ3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos bouquets artificiels sont fabriqués avec des fleurs en soie et en tissu de haute qualité, d'un réalisme saisissant. Indiscernables des fleurs naturelles à l'œil, ils conservent leur beauté des années durant sans entretien. Idéaux pour la décoration intérieure permanente, les bureaux, les hôtels et les espaces où des fleurs fraîches ne sont pas pratiques. Résistants à la lumière, ils ne se fanent jamais et ne déclenchent pas les allergies.</div>
@@ -2695,7 +2067,7 @@
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80" alt="Gerbe Florale"/>
-        <span class="card-famille-badge" style="background:#1a3d2b">🌿 Gerbe</span>
+        <span class="card-famille-badge" style="background:#1a3d2b"> Gerbe</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2703,8 +2075,8 @@
           <div class="latin">Composition cérémonialle</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GER1')">🌸 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GER1')">✨ Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GER1')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GER1')"> Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="GER1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos gerbes florales sont des compositions de grande envergure, réalisées sur un support structuré avec des fleurs fraîches ou artificielles selon la demande. Disponibles en différentes tailles — petite, moyenne et grande —, elles sont conçues pour les cérémonies funèbres, les commémorations, les remises de prix et les inaugurations officielles. Chaque gerbe est personnalisable en couleurs, en essences florales et peut inclure un ruban avec message.</div>
@@ -2720,7 +2092,7 @@
 
   <!-- ─── FAMILLE : DALLETTES & POTS ─── -->
   <div class="section-head" id="section-dalette">
-    <h2>🪨 Dallettes &amp; Pots</h2>
+    <h2>Dallettes &amp; Pots</h2>
     <div class="section-line"></div>
     <span class="famille-badge" style="background:#a08060">6 produits</span>
   </div>
@@ -2729,8 +2101,8 @@
     <!-- DALLETTE MOTIF GÉOMÉTRIQUE -->
     <div class="flower-card" data-famille="dalette">
       <div class="card-img">
-        <img src="assets/dallettes__1_.jpeg" alt="Dallettes Motif Géométrique"/>
-        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+        <img src="./assets/dallettes (1).jpeg" alt="Dallettes Motif Géométrique"/>
+        <span class="card-famille-badge" style="background:#a08060">Dallette</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2738,8 +2110,8 @@
           <div class="latin">Béton préfabriqué — motifs variés</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL1')">🔨 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL1')">✨ Usage</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL1')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL1')"> Usage</button>
         </div>
         <div class="vertus-content">
           <div id="DAL1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Ces dallettes en béton préfabriqué proposent une variété de motifs géométriques élégants : losanges, araignées, éventails et motifs aztèques. Fabriquées à partir d'un béton haute résistance, elles supportent un trafic piétonnier intensif. Leur surface en relief offre une excellente adhérence même par temps de pluie. Disponibles en plusieurs dimensions pour s'adapter à tous les espaces extérieurs.</div>
@@ -2753,8 +2125,8 @@
     <!-- DALLETTE MOTIF GALETS -->
     <div class="flower-card" data-famille="dalette">
       <div class="card-img">
-        <img src="assets/dallettes__2_.jpeg" alt="Dallettes Motif Galets"/>
-        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+        <img src="./assets/dallettes (2).jpeg" alt="Dallettes Motif Galets"/>
+        <span class="card-famille-badge" style="background:#a08060">Dallette</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2762,8 +2134,8 @@
           <div class="latin">Béton avec incrustations de galets naturels</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL2')">🔨 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL2')">✨ Usage</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL2')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL2')"> Usage</button>
         </div>
         <div class="vertus-content">
           <div id="DAL2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Ces dallettes premium intègrent de véritables galets naturels incrustés dans le béton, créant un effet visuel et tactile unique. Chaque dalle est différente — les galets naturels de couleurs chaudes (ocre, sable, brun) contrastent élégamment avec le béton gris. Leur surface texturée offre une adhérence exceptionnelle. Résistantes aux charges lourdes et aux cycles gel-dégel, elles durent des décennies sans entretien particulier.</div>
@@ -2777,8 +2149,8 @@
     <!-- DALLETTE ARABESQUE / FLORALE -->
     <div class="flower-card" data-famille="dalette">
       <div class="card-img">
-        <img src="assets/dallettes__3_.jpeg" alt="Dallettes Arabesque Florale"/>
-        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+        <img src="./assets/dallettes (3).jpeg" alt="Dallettes Arabesque Florale"/>
+        <span class="card-famille-badge" style="background:#a08060">Dallette</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2786,8 +2158,8 @@
           <div class="latin">Béton sculpté — motif arabesque bicolore</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL3')">🔨 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL3')">✨ Usage</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL3')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL3')"> Usage</button>
         </div>
         <div class="vertus-content">
           <div id="DAL3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Ces dallettes artistiques présentent des motifs arabesques floraux finement sculptés dans le béton, avec un médaillon central en relief rehaussé de teinte cuivrée. Le travail de sculpture en creux crée un jeu d'ombres et de lumières selon l'heure de la journée. Fabriquées en béton compacté haute densité, elles résistent parfaitement à l'usure et aux intempéries tout en conservant leur beauté décorative au fil du temps.</div>
@@ -2801,8 +2173,8 @@
     <!-- DALLETTE ÉTOILE CENTRALE -->
     <div class="flower-card" data-famille="dalette">
       <div class="card-img">
-        <img src="assets/dallettes__4_.jpeg" alt="Dallettes Étoile Centrale"/>
-        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+        <img src="./assets/dallettes (4).jpeg" alt="Dallettes Étoile Centrale"/>
+        <span class="card-famille-badge" style="background:#a08060">Dallette</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2810,8 +2182,8 @@
           <div class="latin">Béton sculpté — motif étoile bicolore</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL4')">🔨 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL4')">✨ Usage</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL4')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL4')"> Usage</button>
         </div>
         <div class="vertus-content">
           <div id="DAL4-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>La dallette Étoile Centrale est notre modèle phare — une grande dalle carrée ornée de lignes rayonnantes et d'un médaillon en étoile à 8 branches rehaussé de teinte terracotta au centre. Ses grandes dimensions (60×60 cm) permettent de couvrir rapidement de larges surfaces. Sa surface en béton lisse résiste aux taches, aux moisissures et au trafic intensif. Idéale seule ou combinée avec d'autres modèles pour créer un sol décoratif original.</div>
@@ -2825,8 +2197,8 @@
     <!-- POTS EN CIMENT -->
     <div class="flower-card" data-famille="dalette">
       <div class="card-img">
-        <img src="assets/Pots_de_fleurs_en_ciment.jpeg" alt="Pots de Fleurs en Ciment"/>
-        <span class="card-famille-badge" style="background:#888">🏺 Pot</span>
+        <img src="./assets/Pots de fleurs en ciment.jpeg" alt="Pots de Fleurs en Ciment"/>
+        <span class="card-famille-badge" style="background:#888"> Pot</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2834,8 +2206,8 @@
           <div class="latin">Béton moulé — formes décoratives</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','POT2')">🔨 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','POT2')">✨ Usage</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','POT2')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','POT2')"> Usage</button>
         </div>
         <div class="vertus-content">
           <div id="POT2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos pots en ciment sont fabriqués artisanalement en béton moulé peint en blanc — disponibles en formes décoratives variées : urne classique, pot rectangulaire, cygne sculpté et coupes sur socle. Le béton régule naturellement l'humidité du sol, gardant les racines fraîches en saison chaude et protégées lors des nuits froides. Très stables, ils résistent au vent et conviennent parfaitement aux plantes volumineuses et aux grandes terrasses. Entièrement peints en blanc, ils apportent élégance et luminosité.</div>
@@ -2849,8 +2221,8 @@
     <!-- POTS EN PLASTIQUE -->
     <div class="flower-card" data-famille="dalette">
       <div class="card-img">
-        <img src="assets/Pots_de_fleurs_en_plastique.jpeg" alt="Pots de Fleurs en Plastique"/>
-        <span class="card-famille-badge" style="background:#555">🏺 Pot</span>
+        <img src="./assets/Pots de fleurs en plastique.jpeg" alt="Pots de Fleurs en Plastique"/>
+        <span class="card-famille-badge" style="background:#555"> Pot</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2858,8 +2230,8 @@
           <div class="latin">Plastique haute résistance — coloris variés</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','POT3')">🔨 Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','POT3')">✨ Usage</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','POT3')"> Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','POT3')"> Usage</button>
         </div>
         <div class="vertus-content">
           <div id="POT3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos pots en plastique haute résistance sont disponibles en plusieurs formes et coloris : octogonal bleu, rond terracotta, cylindrique effet granit. Légers, imperméables et incassables, ils sont idéaux pour les balcons, les intérieurs et les espaces où le poids est une contrainte. Leur plastique traité anti-UV conserve ses couleurs sans se dégrader sous le soleil tropical. Faciles à déplacer, à nettoyer et à empiler pour le stockage. Excellent rapport qualité-prix.</div>

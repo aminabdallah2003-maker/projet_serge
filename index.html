@@ -201,7 +201,7 @@
 
         <div class="service-card">
           <div class="service-img">
-            <img src="./assets/netoiyage_des_jardins.jpeg" alt="Espaces verts" loading="lazy"/>
+            <img src="./assets/entretien.jpeg" alt="Espaces verts" loading="lazy"/>
           </div>
           <div class="service-body">
             <div class="service-icon"><i class="fa fa-tree"></i></div>
@@ -245,185 +245,13 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       PAGE : NOS FLEURS (Boutique vitrine)
-  ============================================================ -->
-  <section id="fleurs" class="page">
-
-    <div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1490750967868-88df5691cc9b?w=1600&q=80')">
-      <div class="page-hero-overlay"></div>
-      <div class="page-hero-content">
-        <h1>Nos <em>Fleurs & Plantes</em></h1>
-        <p>Boutique vitrine – Commandez via WhatsApp en un clic</p>
-      </div>
-    </div>
-
-    <div class="section-wrapper">
-      <p class="section-subtitle center">Découvrez notre sélection de plantes et fleurs soigneusement choisies. Cliquez sur "Commander" pour nous contacter directement sur WhatsApp.</p>
-
-      <!-- Filter tabs -->
-      <div class="filter-tabs">
-        <button class="filter-btn active" onclick="filterFleurs('all', this)">Toutes</button>
-        <button class="filter-btn" onclick="filterFleurs('succulente', this)">Succulentes</button>
-        <button class="filter-btn" onclick="filterFleurs('tropicale', this)">Tropicales</button>
-        <button class="filter-btn" onclick="filterFleurs('interieur', this)">Intérieur</button>
-        <button class="filter-btn" onclick="filterFleurs('rare', this)">Rares</button>
-      </div>
-
-      <!-- Flower cards -->
-      <div class="flowers-grid" id="fleursGrid">
-
-        <!-- 1 - Euphorbia trigona -->
-        <div class="flower-card" data-category="succulente">
-          <div class="flower-img">
-            <img src="assets/IMG_E4241.JPG" alt="Euphorbia Trigona" loading="lazy"
-                 onerror="this.src='https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=400&q=80'"/>
-            <span class="flower-badge">Succulent</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Euphorbia Trigona</h3>
-            <p class="flower-desc">Appelée « Cactus africain », cette plante robuste et graphique supporte la sécheresse. Idéale en intérieur lumineux ou en terrasse.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Euphorbia%20Trigona" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2 - Sansevieria cylindrica -->
-        <div class="flower-card" data-category="interieur">
-          <div class="flower-img">
-            <img src="assets/IMG_E4242.JPG" alt="Sansevieria Cylindrica" loading="lazy"
-                 onerror="this.src='https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&q=80'"/>
-            <span class="flower-badge">Intérieur</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Sansevieria Cylindrica</h3>
-            <p class="flower-desc">Tiges cylindriques élégantes au motif zébré. Purificatrice d'air, très résistante, parfaite pour les espaces modernes.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Sansevieria%20Cylindrica" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 - Sansevieria trifasciata -->
-        <div class="flower-card" data-category="interieur">
-          <div class="flower-img">
-            <img src="assets/IMG_E4243.JPG" alt="Sansevieria Trifasciata" loading="lazy"
-                 onerror="this.src='https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=400&q=80'"/>
-            <span class="flower-badge">Intérieur</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Sansevieria Trifasciata</h3>
-            <p class="flower-desc">La célèbre « Langue de belle-mère ». Indestructible, elle purifie l'air et s'adapte à toutes les luminosités. Un incontournable.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Sansevieria%20Trifasciata" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 - Cyperus alternifolius -->
-        <div class="flower-card" data-category="tropicale">
-          <div class="flower-img">
-            <img src="assets/IMG_E4244.JPG" alt="Cyperus Alternifolius" loading="lazy"
-                 onerror="this.src='https://images.unsplash.com/photo-1567748157439-651aca2ff064?w=400&q=80'"/>
-            <span class="flower-badge">Tropicale</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Cyperus Alternifolius</h3>
-            <p class="flower-desc">Le papyrus nain apporte une touche exotique et légère. Aime l'humidité. Parfait en bordure de bassin ou comme plante d'intérieur lumineuse.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Cyperus%20Alternifolius" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5 - Huernia zebrina -->
-        <div class="flower-card" data-category="rare">
-          <div class="flower-img">
-            <img src="assets/IMG_E4245.JPG" alt="Huernia Zebrina" loading="lazy"
-                 onerror="this.src='https://images.unsplash.com/photo-1644982647869-4c0f4f9e5c0f?w=400&q=80'"/>
-            <span class="flower-badge badge-rare">Rare</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Huernia Zebrina</h3>
-            <p class="flower-desc">Plante succulente rare aux fleurs étoilées vert vif et bordées de cils délicats. Une curiosité botanique fascinante pour collectionneurs.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Huernia%20Zebrina" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6 - Aloe vera -->
-        <div class="flower-card" data-category="succulente">
-          <div class="flower-img">
-            <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=600&q=80" alt="Aloe Vera" loading="lazy"/>
-            <span class="flower-badge">Succulente</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Aloe Vera</h3>
-            <p class="flower-desc">Plante médicinale aux multiples vertus : cicatrisante, apaisante, hydratante. Facile à entretenir et très esthétique.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Aloe%20Vera" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7 - Monstera deliciosa -->
-        <div class="flower-card" data-category="tropicale">
-          <div class="flower-img">
-            <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=600&q=80" alt="Monstera Deliciosa" loading="lazy"/>
-            <span class="flower-badge">Tropicale</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Monstera Deliciosa</h3>
-            <p class="flower-desc">La plante tendance par excellence ! Ses grandes feuilles découpées apportent une touche tropicale et luxuriante à tout intérieur.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Monstera%20Deliciosa" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8 - Ficus lyrata -->
-        <div class="flower-card" data-category="interieur">
-          <div class="flower-img">
-            <img src="https://images.unsplash.com/photo-1598880940371-c756e015faf6?w=600&q=80" alt="Ficus Lyrata" loading="lazy"/>
-            <span class="flower-badge">Intérieur</span>
-          </div>
-          <div class="flower-body">
-            <h3 class="flower-name">Ficus Lyrata</h3>
-            <p class="flower-desc">Le « Figuier violon » est un arbre d'intérieur à grandes feuilles brillantes. Emblème du design d'intérieur moderne et épuré.</p>
-            <div class="flower-footer">
-              <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour%2C%20je%20souhaite%20commander%20la%20plante%20%3A%20Ficus%20Lyrata" target="_blank">
-                <i class="fab fa-whatsapp"></i> Commander
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- end flowers-grid -->
-    </div>
-  </section>
 
   <!-- ============================================================
        PAGE : CONTACT
   ============================================================ -->
   <section id="contact" class="page">
 
-    <div class="page-hero" style="background-image:url('')">
+    <div class="page-hero" style="background-image:url('./assets/contactt.webp')">
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content">
         <h1>Nous <em>Contacter</em></h1>

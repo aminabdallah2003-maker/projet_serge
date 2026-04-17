@@ -71,6 +71,7 @@ em { font-style: italic; color: var(--green-light); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .nav-logo img {
@@ -109,11 +110,19 @@ em { font-style: italic; color: var(--green-light); }
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  align-self: center;
+  margin-top: 0 !important;
+  position: relative;
+  top: 0;
 }
 
 .hamburger span {
@@ -689,7 +698,7 @@ em { font-style: italic; color: var(--green-light); }
 
 .flower-img {
   position: relative;
-  height: 200px;
+  height: 280px;
   overflow: hidden;
 }
 
@@ -1109,11 +1118,16 @@ footer {
 @media (max-width: 768px) {
   .float-whatsapp { right: 16px; bottom: 18px; }
   .back-to-top { right: 76px; bottom: 18px; }
-  .hamburger { position: relative; right: 0; }
+  .hamburger { display: flex !important; align-self: center; top: 0; position: relative; }
+  .flowers-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .flower-img { height: 240px !important; }
 }
 
 @media (max-width: 480px) {
   .float-whatsapp { right: 12px; bottom: 14px; width:52px; height:52px; }
   .back-to-top { right: 72px; bottom: 14px; }
+  .flowers-grid { grid-template-columns: 1fr !important; }
+  .flower-img { height: 260px !important; }
+  .flower-card { border-radius: 12px; }
 }
 

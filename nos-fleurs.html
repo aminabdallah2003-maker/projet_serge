@@ -31,6 +31,7 @@
       --famille-energie: #c9a84c;
       --famille-gazon:   #7ec850;
       --famille-bouquet: #d4a0c0;
+      --famille-dalette: #a08060;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,6 +62,7 @@
       max-width: 1280px; margin: 0 auto;
       padding: 0 32px; height: 70px;
       display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: nowrap;
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
@@ -69,7 +71,7 @@
       display: flex; align-items: center; gap: 10px;
     }
     .nav-logo img { height: 48px; }
-    .nav-links { gap: 6px; }
+    .nav-links { gap: 6px; display: flex; align-items: center; list-style: none; }
     .nav-link {
       font-size: 0.92rem; font-weight: 500;
       padding: 8px 18px; border-radius: 50px;
@@ -224,7 +226,7 @@
     /* image zone */
     .card-img {
       position: relative;
-      height: 220px; overflow: hidden;
+      height: 280px; overflow: hidden;
     }
     .card-img img {
       width: 100%; height: 100%;
@@ -361,7 +363,7 @@
     </a>
     <ul id="navLinks" class="nav-links">
       <li><a href="index.html#accueil"  class="nav-link">Accueil</a></li>
-      <li><a href="index.htm l#services" class="nav-link">Nos Services</a></li>
+      <li><a href="index.html#services" class="nav-link">Nos Services</a></li>
       <li><a href="nos-fleurs.html"     class="nav-link active">Nos Fleurs</a></li>
       <li><a href="index.html#contact"  class="nav-link">Contact</a></li>
     </ul>
@@ -395,19 +397,21 @@
   <div class="legend-item"><div class="legend-dot" style="background:#c9a84c"></div> Énergie &amp; Vitalité</div>
   <div class="legend-item"><div class="legend-dot" style="background:#7ec850"></div> Gazons</div>
   <div class="legend-item"><div class="legend-dot" style="background:#d4a0c0"></div> Bouquets &amp; Gerbes</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a08060"></div> Dallettes &amp; Pots</div>
 </div>
 
 <!-- ══ FILTRES ══ -->
 <div class="filter-section">
   <div class="filter-tabs">
-    <button class="filter-btn active" onclick="filterCards('all',this)"> Toutes</button>
-    <button class="filter-btn" onclick="filterCards('amour',this)"> Amour &amp; Beauté</button>
-    <button class="filter-btn" onclick="filterCards('sante',this)"> Santé &amp; Guérison</button>
-    <button class="filter-btn" onclick="filterCards('force',this)"> Force &amp; Protection</button>
-    <button class="filter-btn" onclick="filterCards('paix',this)"> Paix &amp; Harmonie</button>
-    <button class="filter-btn" onclick="filterCards('energie',this)"> Énergie &amp; Vitalité</button>
-    <button class="filter-btn" onclick="filterCards('gazon',this)"> Gazons</button>
-    <button class="filter-btn" onclick="filterCards('bouquet',this)"> Bouquets &amp; Gerbes</button>
+    <button class="filter-btn active" onclick="filterCards('all',this)">🌿 Toutes</button>
+    <button class="filter-btn" onclick="filterCards('amour',this)">🌸 Amour &amp; Beauté</button>
+    <button class="filter-btn" onclick="filterCards('sante',this)">💚 Santé &amp; Guérison</button>
+    <button class="filter-btn" onclick="filterCards('force',this)">🛡️ Force &amp; Protection</button>
+    <button class="filter-btn" onclick="filterCards('paix',this)">🕊️ Paix &amp; Harmonie</button>
+    <button class="filter-btn" onclick="filterCards('energie',this)">⚡ Énergie &amp; Vitalité</button>
+    <button class="filter-btn" onclick="filterCards('gazon',this)">🌱 Gazons</button>
+    <button class="filter-btn" onclick="filterCards('bouquet',this)">💐 Bouquets &amp; Gerbes</button>
+    <button class="filter-btn" onclick="filterCards('dalette',this)">🪨 Dallettes &amp; Pots</button>
   </div>
 </div>
 
@@ -2527,7 +2531,7 @@
 
   <!-- ─── FAMILLE : GAZONS ─── -->
   <div class="section-head famille-gazon-head" id="section-gazon">
-    <h2> Nos Gazons</h2>
+    <h2>🌱 Nos Gazons</h2>
     <div class="section-line"></div>
     <span class="famille-badge" style="background:#7ec850">3 types</span>
   </div>
@@ -2537,7 +2541,7 @@
     <div class="flower-card" data-famille="gazon">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Gazon Américain"/>
-        <span class="card-famille-badge" style="background:#7ec850"> Gazon</span>
+        <span class="card-famille-badge" style="background:#7ec850">🌱 Gazon</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2545,8 +2549,8 @@
           <div class="latin">Cynodon dactylon 'Bermuda'</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ1')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ1')"> Spirituelle</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ1')">🌿 Naturelle</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ1')">✨ Spirituelle</button>
         </div>
         <div class="vertus-content">
           <div id="GAZ1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le gazon américain (Bermuda) est l'une des espèces les plus résistantes au monde. Il supporte une chaleur intense, une sécheresse prolongée et un piétinement régulier. Ses racines profondes stabilisent les sols érodés et réduisent le ruissellement des eaux de pluie. Son tapis dense absorbe le CO₂ et produit de l'oxygène, rafraîchissant naturellement l'atmosphère de 3 à 5°C autour de lui.</div>
@@ -2561,7 +2565,7 @@
     <div class="flower-card" data-famille="gazon">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Gazon Chinois"/>
-        <span class="card-famille-badge" style="background:#7ec850"> Gazon</span>
+        <span class="card-famille-badge" style="background:#7ec850">🌱 Gazon</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2569,8 +2573,8 @@
           <div class="latin">Zoysia japonica</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ2')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ2')"> Spirituelle</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ2')">🌿 Naturelle</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ2')">✨ Spirituelle</button>
         </div>
         <div class="vertus-content">
           <div id="GAZ2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le gazon chinois (Zoysia) est réputé pour sa douceur exceptionnelle au toucher et sa densité remarquable qui étouffe naturellement les mauvaises herbes sans herbicide. Très tolérant à l'ombre partielle, il convient aux jardins ombragés. Sa croissance lente réduit la fréquence de tonte. Il résiste aux maladies fongiques et nécessite peu d'engrais, en faisant l'une des pelouses les plus écologiques disponibles.</div>
@@ -2585,7 +2589,7 @@
     <div class="flower-card" data-famille="gazon">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Gazon Français"/>
-        <span class="card-famille-badge" style="background:#7ec850"> Gazon</span>
+        <span class="card-famille-badge" style="background:#7ec850">🌱 Gazon</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2593,8 +2597,8 @@
           <div class="latin">Festuca arundinacea</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ3')"> Naturelle</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ3')"> Spirituelle</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GAZ3')">🌿 Naturelle</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GAZ3')">✨ Spirituelle</button>
         </div>
         <div class="vertus-content">
           <div id="GAZ3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le gazon français (Fétuque élevée) est le champion des pelouses sportives et décoratives. Son vert profond et intense est incomparable. Sa résistance aux piétinements intenses, aux sécheresses et aux fortes chaleurs en fait le gazon idéal pour les espaces polyvalents. Ses racines profondes de 60 à 90 cm lui permettent de trouver l'eau en profondeur. Reconnu pour ses propriétés de captation du carbone et de phytoremédiation des sols.</div>
@@ -2609,7 +2613,7 @@
 
   <!-- ─── FAMILLE : BOUQUETS & GERBES ─── -->
   <div class="section-head" id="section-bouquet">
-    <h2> Bouquets &amp; Gerbes</h2>
+    <h2>💐 Bouquets &amp; Gerbes</h2>
     <div class="section-line"></div>
     <span class="famille-badge" style="background:#d4a0c0">4 créations</span>
   </div>
@@ -2619,7 +2623,7 @@
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1487530811015-780c23a8b4a5?w=600&q=80" alt="Bouquet d'Argent"/>
-        <span class="card-famille-badge" style="background:#d4a0c0"> Bouquet</span>
+        <span class="card-famille-badge" style="background:#d4a0c0">💐 Bouquet</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2627,8 +2631,8 @@
           <div class="latin">Création florale premium</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ1')"> Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ1')"> Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ1')">🌸 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ1')">✨ Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="BOQ1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Le bouquet d'argent est notre création florale haut de gamme. Composé de fleurs blanches et crème — roses blanches, lys, orchidées et gypsophile — dans un emballage argenté raffiné. Idéal pour les mariages, les anniversaires importants et les occasions d'exception. Chaque bouquet est assemblé à la main avec soin par nos artisans fleuristes, utilisant des fleurs fraîches du jour pour garantir une fraîcheur et une durée de vie maximales.</div>
@@ -2643,7 +2647,7 @@
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=600&q=80" alt="Bouquet de Fleurs Naturelles"/>
-        <span class="card-famille-badge" style="background:#d4a0c0"> Bouquet</span>
+        <span class="card-famille-badge" style="background:#d4a0c0">💐 Bouquet</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2651,8 +2655,8 @@
           <div class="latin">Fleurs fraîches de saison</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ2')"> Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ2')"> Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ2')">🌸 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ2')">✨ Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="BOQ2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Notre bouquet naturel est une sélection de fleurs fraîches de saison, coupées le jour même de la livraison. Roses colorées, tournesols, gerberas, dahlias et verdure naturelle forment des compositions vibrantes et parfumées. Chaque bouquet est unique — assemblé selon la disponibilité des fleurs les plus fraîches du marché. Parfait pour les anniversaires, la Saint-Valentin, les fêtes des mères et toutes les occasions joyeuses.</div>
@@ -2667,7 +2671,7 @@
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=600&q=80" alt="Bouquet de Fleurs Artificielles"/>
-        <span class="card-famille-badge" style="background:#d4a0c0"> Bouquet</span>
+        <span class="card-famille-badge" style="background:#d4a0c0">💐 Bouquet</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2675,8 +2679,8 @@
           <div class="latin">Fleurs permanentes premium</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ3')"> Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ3')"> Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','BOQ3')">🌸 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','BOQ3')">✨ Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="BOQ3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos bouquets artificiels sont fabriqués avec des fleurs en soie et en tissu de haute qualité, d'un réalisme saisissant. Indiscernables des fleurs naturelles à l'œil, ils conservent leur beauté des années durant sans entretien. Idéaux pour la décoration intérieure permanente, les bureaux, les hôtels et les espaces où des fleurs fraîches ne sont pas pratiques. Résistants à la lumière, ils ne se fanent jamais et ne déclenchent pas les allergies.</div>
@@ -2691,7 +2695,7 @@
     <div class="flower-card" data-famille="bouquet">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80" alt="Gerbe Florale"/>
-        <span class="card-famille-badge" style="background:#1a3d2b"> Gerbe</span>
+        <span class="card-famille-badge" style="background:#1a3d2b">🌿 Gerbe</span>
       </div>
       <div class="card-body">
         <div class="card-names">
@@ -2699,8 +2703,8 @@
           <div class="latin">Composition cérémonialle</div>
         </div>
         <div class="vertus-tabs">
-          <button class="vtab active" onclick="switchTab(this,'naturelle','GER1')"> Description</button>
-          <button class="vtab" onclick="switchTab(this,'spirituelle','GER1')"> Symbolique</button>
+          <button class="vtab active" onclick="switchTab(this,'naturelle','GER1')">🌸 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','GER1')">✨ Symbolique</button>
         </div>
         <div class="vertus-content">
           <div id="GER1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos gerbes florales sont des compositions de grande envergure, réalisées sur un support structuré avec des fleurs fraîches ou artificielles selon la demande. Disponibles en différentes tailles — petite, moyenne et grande —, elles sont conçues pour les cérémonies funèbres, les commémorations, les remises de prix et les inaugurations officielles. Chaque gerbe est personnalisable en couleurs, en essences florales et peut inclure un ruban avec message.</div>
@@ -2712,6 +2716,161 @@
     </div>
 
   </div><!-- end bouquet grid -->
+
+
+  <!-- ─── FAMILLE : DALLETTES & POTS ─── -->
+  <div class="section-head" id="section-dalette">
+    <h2>🪨 Dallettes &amp; Pots</h2>
+    <div class="section-line"></div>
+    <span class="famille-badge" style="background:#a08060">6 produits</span>
+  </div>
+  <div class="flowers-grid">
+
+    <!-- DALLETTE MOTIF GÉOMÉTRIQUE -->
+    <div class="flower-card" data-famille="dalette">
+      <div class="card-img">
+        <img src="assets/dallettes__1_.jpeg" alt="Dallettes Motif Géométrique"/>
+        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+      </div>
+      <div class="card-body">
+        <div class="card-names">
+          <h3>Dallettes Motifs Géométriques</h3>
+          <div class="latin">Béton préfabriqué — motifs variés</div>
+        </div>
+        <div class="vertus-tabs">
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL1')">🔨 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL1')">✨ Usage</button>
+        </div>
+        <div class="vertus-content">
+          <div id="DAL1-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Ces dallettes en béton préfabriqué proposent une variété de motifs géométriques élégants : losanges, araignées, éventails et motifs aztèques. Fabriquées à partir d'un béton haute résistance, elles supportent un trafic piétonnier intensif. Leur surface en relief offre une excellente adhérence même par temps de pluie. Disponibles en plusieurs dimensions pour s'adapter à tous les espaces extérieurs.</div>
+          <div id="DAL1-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Idéales pour les allées de jardin, les terrasses, les cours intérieures et les bords de piscine. Leur design géométrique apporte une touche contemporaine et structurée à tout espace extérieur. Faciles à poser sans mortier sur lit de sable compacté. Résistantes aux UV, aux intempéries et aux champignons. Un investissement durable qui valorise immédiatement votre propriété et embélit votre cadre de vie.</div>
+        </div>
+        <div class="card-divider"></div>
+        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+des+Dallettes+Motifs+G%C3%A9om%C3%A9triques.+Pouvez-vous+me+donner+les+prix+et+disponibilit%C3%A9s+%3F" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+      </div>
+    </div>
+
+    <!-- DALLETTE MOTIF GALETS -->
+    <div class="flower-card" data-famille="dalette">
+      <div class="card-img">
+        <img src="assets/dallettes__2_.jpeg" alt="Dallettes Motif Galets"/>
+        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+      </div>
+      <div class="card-body">
+        <div class="card-names">
+          <h3>Dallettes Motif Galets</h3>
+          <div class="latin">Béton avec incrustations de galets naturels</div>
+        </div>
+        <div class="vertus-tabs">
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL2')">🔨 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL2')">✨ Usage</button>
+        </div>
+        <div class="vertus-content">
+          <div id="DAL2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Ces dallettes premium intègrent de véritables galets naturels incrustés dans le béton, créant un effet visuel et tactile unique. Chaque dalle est différente — les galets naturels de couleurs chaudes (ocre, sable, brun) contrastent élégamment avec le béton gris. Leur surface texturée offre une adhérence exceptionnelle. Résistantes aux charges lourdes et aux cycles gel-dégel, elles durent des décennies sans entretien particulier.</div>
+          <div id="DAL2-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Les dallettes galets sont le choix parfait pour créer des chemins de jardin naturels et authentiques, des zones de détente zen, des bords de fontaine ou de bassin. Leur esthétique naturelle s'intègre harmonieusement dans tous les jardins paysagés. Très appréciées pour les spas, les espaces de méditation et les jardins japonais. Posées sous les pieds nus, la texture des galets offre un véritable massage plantaire naturel et thérapeutique.</div>
+        </div>
+        <div class="card-divider"></div>
+        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+des+Dallettes+Motif+Galets.+Pouvez-vous+me+donner+les+prix+et+disponibilit%C3%A9s+%3F" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+      </div>
+    </div>
+
+    <!-- DALLETTE ARABESQUE / FLORALE -->
+    <div class="flower-card" data-famille="dalette">
+      <div class="card-img">
+        <img src="assets/dallettes__3_.jpeg" alt="Dallettes Arabesque Florale"/>
+        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+      </div>
+      <div class="card-body">
+        <div class="card-names">
+          <h3>Dallettes Arabesque Florale</h3>
+          <div class="latin">Béton sculpté — motif arabesque bicolore</div>
+        </div>
+        <div class="vertus-tabs">
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL3')">🔨 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL3')">✨ Usage</button>
+        </div>
+        <div class="vertus-content">
+          <div id="DAL3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Ces dallettes artistiques présentent des motifs arabesques floraux finement sculptés dans le béton, avec un médaillon central en relief rehaussé de teinte cuivrée. Le travail de sculpture en creux crée un jeu d'ombres et de lumières selon l'heure de la journée. Fabriquées en béton compacté haute densité, elles résistent parfaitement à l'usure et aux intempéries tout en conservant leur beauté décorative au fil du temps.</div>
+          <div id="DAL3-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Ces dallettes artistiques sont parfaites pour créer des espaces de prestige : entrées de villas, cours de réception, jardins de luxe et espaces cérémonicels. Leur design arabesque apporte une touche d'élégance orientale et de raffinement qui distingue immédiatement votre espace. Elles peuvent être posées en décoration murale, en revêtement de sol ou en combinaison avec d'autres motifs pour créer des compositions personnalisées uniques.</div>
+        </div>
+        <div class="card-divider"></div>
+        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+des+Dallettes+Arabesque+Florale.+Pouvez-vous+me+donner+les+prix+et+disponibilit%C3%A9s+%3F" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+      </div>
+    </div>
+
+    <!-- DALLETTE ÉTOILE CENTRALE -->
+    <div class="flower-card" data-famille="dalette">
+      <div class="card-img">
+        <img src="assets/dallettes__4_.jpeg" alt="Dallettes Étoile Centrale"/>
+        <span class="card-famille-badge" style="background:#a08060">🪨 Dallette</span>
+      </div>
+      <div class="card-body">
+        <div class="card-names">
+          <h3>Dallettes Étoile Centrale</h3>
+          <div class="latin">Béton sculpté — motif étoile bicolore</div>
+        </div>
+        <div class="vertus-tabs">
+          <button class="vtab active" onclick="switchTab(this,'naturelle','DAL4')">🔨 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','DAL4')">✨ Usage</button>
+        </div>
+        <div class="vertus-content">
+          <div id="DAL4-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>La dallette Étoile Centrale est notre modèle phare — une grande dalle carrée ornée de lignes rayonnantes et d'un médaillon en étoile à 8 branches rehaussé de teinte terracotta au centre. Ses grandes dimensions (60×60 cm) permettent de couvrir rapidement de larges surfaces. Sa surface en béton lisse résiste aux taches, aux moisissures et au trafic intensif. Idéale seule ou combinée avec d'autres modèles pour créer un sol décoratif original.</div>
+          <div id="DAL4-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>L'étoile à 8 branches est un symbole universel de protection et de guidée divine présent dans toutes les grandes civilisations. Poser cette dallette à l'entrée de sa maison ou de son jardin est un geste symbolique puissant — inviter la lumière, la direction et la protection dans son espace. Son effet visuel fort crée immédiatement un point focal élégant qui attire l'œil et affirme le caractère unique et soigné de votre espace extérieur.</div>
+        </div>
+        <div class="card-divider"></div>
+        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+des+Dallettes+%C3%89toile+Centrale.+Pouvez-vous+me+donner+les+prix+et+disponibilit%C3%A9s+%3F" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+      </div>
+    </div>
+
+    <!-- POTS EN CIMENT -->
+    <div class="flower-card" data-famille="dalette">
+      <div class="card-img">
+        <img src="assets/Pots_de_fleurs_en_ciment.jpeg" alt="Pots de Fleurs en Ciment"/>
+        <span class="card-famille-badge" style="background:#888">🏺 Pot</span>
+      </div>
+      <div class="card-body">
+        <div class="card-names">
+          <h3>Pots de Fleurs en Ciment</h3>
+          <div class="latin">Béton moulé — formes décoratives</div>
+        </div>
+        <div class="vertus-tabs">
+          <button class="vtab active" onclick="switchTab(this,'naturelle','POT2')">🔨 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','POT2')">✨ Usage</button>
+        </div>
+        <div class="vertus-content">
+          <div id="POT2-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos pots en ciment sont fabriqués artisanalement en béton moulé peint en blanc — disponibles en formes décoratives variées : urne classique, pot rectangulaire, cygne sculpté et coupes sur socle. Le béton régule naturellement l'humidité du sol, gardant les racines fraîches en saison chaude et protégées lors des nuits froides. Très stables, ils résistent au vent et conviennent parfaitement aux plantes volumineuses et aux grandes terrasses. Entièrement peints en blanc, ils apportent élégance et luminosité.</div>
+          <div id="POT2-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Le pot en ciment blanc est le contenant idéal pour mettre en valeur vos plantes ornementales en extérieur. Sa robustesse et sa pérennité en font un choix judicieux pour les jardins, les entrées de maison, les allées et les espaces de réception. Le cygne sculpté est particulièrement apprécié pour les jardins romantiques et les espaces d'accueil — symbolisant la grâce et la fidélité dans de nombreuses traditions. Ces pots deviennent de véritables sculptures décoratives, même vides.</div>
+        </div>
+        <div class="card-divider"></div>
+        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+des+Pots+de+Fleurs+en+Ciment.+Pouvez-vous+me+donner+les+mod%C3%A8les+disponibles+et+les+prix+%3F" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+      </div>
+    </div>
+
+    <!-- POTS EN PLASTIQUE -->
+    <div class="flower-card" data-famille="dalette">
+      <div class="card-img">
+        <img src="assets/Pots_de_fleurs_en_plastique.jpeg" alt="Pots de Fleurs en Plastique"/>
+        <span class="card-famille-badge" style="background:#555">🏺 Pot</span>
+      </div>
+      <div class="card-body">
+        <div class="card-names">
+          <h3>Pots de Fleurs en Plastique</h3>
+          <div class="latin">Plastique haute résistance — coloris variés</div>
+        </div>
+        <div class="vertus-tabs">
+          <button class="vtab active" onclick="switchTab(this,'naturelle','POT3')">🔨 Description</button>
+          <button class="vtab" onclick="switchTab(this,'spirituelle','POT3')">✨ Usage</button>
+        </div>
+        <div class="vertus-content">
+          <div id="POT3-naturelle" class="vertu-panel active"><span class="vertu-icon"></span>Nos pots en plastique haute résistance sont disponibles en plusieurs formes et coloris : octogonal bleu, rond terracotta, cylindrique effet granit. Légers, imperméables et incassables, ils sont idéaux pour les balcons, les intérieurs et les espaces où le poids est une contrainte. Leur plastique traité anti-UV conserve ses couleurs sans se dégrader sous le soleil tropical. Faciles à déplacer, à nettoyer et à empiler pour le stockage. Excellent rapport qualité-prix.</div>
+          <div id="POT3-spirituelle" class="vertu-panel"><span class="vertu-icon"></span>Pratiques et polyvalents, nos pots en plastique sont la solution idéale pour démarrer ou développer votre collection de plantes à moindre coût. Leur légèreté permet de réorganiser facilement vos espaces verts selon les saisons et vos envies. Parfaits pour les semis, les jeunes plants et les plantes d'intérieur. Les coloris variés permettent de créer des compositions colorées harmonieuses sur vos terrasses, balcons et cours intérieures. Disponibles en petite, moyenne et grande taille.</div>
+        </div>
+        <div class="card-divider"></div>
+        <a class="btn-whatsapp" href="https://wa.me/22870481918?text=Bonjour+L%27Oasis+Florale+%F0%9F%8C%BF+Je+souhaite+commander+des+Pots+de+Fleurs+en+Plastique.+Pouvez-vous+me+donner+les+mod%C3%A8les+disponibles+et+les+prix+%3F" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
+      </div>
+    </div>
+
+  </div><!-- end dalette grid -->
 
 
   <!-- ══ COMPTEUR FINAL ══ -->
@@ -2849,6 +3008,11 @@
       padding: 8px;
       border-radius: 8px;
       flex-shrink: 0;
+      align-self: center;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      position: relative;
+      top: 0;
     }
     .hamburger span {
       display: block;
@@ -2952,17 +3116,19 @@
       .hamburger { display: flex !important; }
       .wrapper { padding: 32px 12px !important; }
       .hero { height: 220px !important; }
-      .card-img { height: 180px !important; }
+      .card-img { height: 260px !important; }
       .float-whatsapp { width: 50px; height: 50px; font-size: 1.4rem; bottom: 20px; right: 16px; }
       .back-to-top { width: 42px; height: 42px; font-size: 0.9rem; bottom: 20px; left: 16px; }
     }
     @media (max-width: 480px) {
-      .flowers-grid { grid-template-columns: 1fr !important; }
+      .flowers-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
       .hero { height: 180px !important; }
-      .card-img { height: 140px !important; }
+      .card-img { height: 260px !important; }
+      .flower-card { border-radius: 14px !important; }
       .nav-inner { padding: 0 12px !important; }
       .section-head h2 { font-size: 1.25rem !important; }
       .wrapper { padding: 28px 10px !important; }
+      .card-body { padding: 18px 16px 16px !important; }
       .float-whatsapp { width: 46px; height: 46px; font-size: 1.3rem; bottom: 16px; right: 14px; }
       .back-to-top { width: 40px; height: 40px; font-size: 0.85rem; bottom: 16px; left: 14px; }
     }

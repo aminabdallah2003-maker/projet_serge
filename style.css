@@ -119,7 +119,10 @@ em { font-style: italic; color: var(--green-light); }
   padding: 8px;
   border-radius: 8px;
   flex-shrink: 0;
-  margin: 0;
+  align-self: center;
+  margin-top: 0 !important;
+  position: relative;
+  top: 0;
 }
 
 .hamburger span {
@@ -767,9 +770,11 @@ em { font-style: italic; color: var(--green-light); }
 /* ── CONTACT ────────────────────────────────────────────── */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 64px;
+  grid-template-columns: 1fr;
+  gap: 40px;
   align-items: start;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .contact-form-wrapper h2 {
@@ -883,13 +888,14 @@ em { font-style: italic; color: var(--green-light); }
 }
 
 .local-serg {
-  width: 70%;
+  display: block;
+  width: calc(100% - 48px);
+  max-width: 900px;
   min-height: 400px;
-  margin-left: 200px;
+  margin: 0 auto 10px;
   border-radius: var(--radius);
   border: 2px solid var(--green-pale);
   box-shadow: var(--shadow-lg);
-  margin-bottom: 10px;
   transition: all var(--transition);
   animation: mapLoad 0.8s ease-out;
 }
@@ -912,15 +918,17 @@ em { font-style: italic; color: var(--green-light); }
 
 @media (max-width: 768px) {
   .local-serg {
-    min-height: 380px;
-    margin-bottom: 40px;
+    width: calc(100% - 32px);
+    min-height: 320px;
+    margin: 0 auto 32px;
   }
 }
 
 @media (max-width: 480px) {
   .local-serg {
-    min-height: 300px;
-    margin-bottom: 32px;
+    width: calc(100% - 24px);
+    min-height: 260px;
+    margin: 0 auto 24px;
     border-radius: 12px;
   }
 }

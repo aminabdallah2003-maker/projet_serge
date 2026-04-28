@@ -77,7 +77,7 @@
     .hero {
       position: relative;
       height: 380px;
-      background: url('./assets/imgnos_fleurs.jpeg') center/cover;
+      background: url('./assets/nos_fleurs.jpg') center/cover;
       display: flex; align-items: center;
       overflow: hidden;
     }

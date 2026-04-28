@@ -55,7 +55,7 @@
           <button class="btn-hero" onclick="showPage('services')">Découvrir nos services</button>
         </div>
       </div>
-      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1600&q=80')">
+      <div class="slide" style="background-image:url('./assets/hero_num2.jpg')">
         <div class="slide-overlay"></div>
         <div class="slide-content">
           <span class="slide-tag">Fleurs & plantes</span>
@@ -138,7 +138,7 @@
   ============================================================ -->
   <section id="services" class="page">
 
-    <div class="page-hero" style="background-image:url('./assets/accnoservises.jpeg')">
+    <div class="page-hero" style="background-image:url('./assets/Nos-service.jpg')">
       <div class="page-hero-overlay"></div>
       <div class="page-hero-content">
         <h1>Nos <em>Services</em></h1>
@@ -202,7 +202,7 @@
 
         <div class="service-card">
           <div class="service-img">
-            <img src="./assets/entrtien2.jpeg" alt="Espaces verts" loading="lazy"/>
+            <img src="./assets/nos_fleurs.jpg" alt="Espaces verts" loading="lazy"/>
           </div>
           <div class="service-body">
             <div class="service-icon"><i class="fa fa-tree"></i></div>
@@ -261,61 +261,20 @@
     </div>
 
     <div class="section-wrapper">
+      <h2 class="section-title center">Notre Localisation</h2>
+      <div style="text-align: center; margin-bottom: 36px; color: var(--gray-500);">
+        <p>Retrouvez-nous à Kara — Interventions dans tout le Grand Kara et ses environs</p>
+      </div>
+    </div>
+
+    <iframe class="local-serg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3299.122857616072!2d1.1732002741387357!3d9
+    .56440199051984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102b8b00256e84d5%3A0x3d0249fa5b3299be!2sL%E2
+    %80%99oasis%20Florale!5e1!3m2!1sfr!2stg!4v1777378120740!5m2!1sfr!2stg" width="600" height="450" style="border:0;"
+     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <div class="section-wrapper">
       <div class="contact-grid">
 
-        <!-- Form -->
-        <div class="contact-form-wrapper">
-          <h2>Envoyez-nous un message</h2>
-          <p>Remplissez ce formulaire et nous vous répondrons dans les plus brefs délais.</p>
-
-          <form id="contactForm" onsubmit="submitForm(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">Prénom *</label>
-                <input type="text" id="fname" name="fname" placeholder="Jean" required/>
-              </div>
-              <div class="form-group">
-                <label for="lname">Nom *</label>
-                <input type="text" id="lname" name="lname" placeholder="Dupont" required/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" placeholder="jean@example.com" required/>
-            </div>
-            <div class="form-group">
-              <label for="phone">Téléphone</label>
-              <input type="tel" id="phone" name="phone" placeholder="+228 90 00 00 00"/>
-            </div>
-            <div class="form-group">
-              <label for="service">Service souhaité</label>
-              <select id="service" name="service">
-                <option value="">-- Choisir un service --</option>
-                <option>Tonte de pelouse</option>
-                <option>Scarification</option>
-                <option>Taille de haies</option>
-                <option>Entretien espaces verts</option>
-                <option>Nettoyage / Technicien de surface</option>
-                <option>Commande de plantes</option>
-                <option>Autre</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="5" placeholder="Décrivez votre besoin..." required></textarea>
-            </div>
-            <button type="submit" class="btn-primary full-width">
-              <i class="fa fa-paper-plane"></i> Envoyer le message
-            </button>
-          </form>
-
-          <!-- Success message (hidden by default) -->
-          <div id="formSuccess" class="form-success" style="display:none;">
-            <i class="fa fa-circle-check"></i>
-            <h3>Message envoyé !</h3>
-            <p>Merci pour votre message. Nous vous recontacterons très prochainement.</p>
-          </div>
-        </div>
 
         <!-- Contact info -->
         <div class="contact-info">
@@ -387,10 +346,9 @@
         <a href="#contact"  onclick="showPage('contact')">Contact</a>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.facebook.com/share/17WE6q4hWK/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
         <a href="https://wa.me/22870481918" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://vm.tiktok.com/ZS9N51fNjWPJt-PiAbH/" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
     <div class="footer-bottom">

@@ -119,10 +119,7 @@ em { font-style: italic; color: var(--green-light); }
   padding: 8px;
   border-radius: 8px;
   flex-shrink: 0;
-  align-self: center;
-  margin-top: 0 !important;
-  position: relative;
-  top: 0;
+  margin: 0;
 }
 
 .hamburger span {
@@ -166,7 +163,7 @@ em { font-style: italic; color: var(--green-light); }
 
 .section-subtitle {
   font-size: 1.05rem;
-  color: var(--gray-500);
+  color: black;
   max-width: 640px;
   margin: 0 auto 56px;
   line-height: 1.8;
@@ -883,6 +880,49 @@ em { font-style: italic; color: var(--green-light); }
 .info-card a, .info-card p {
   font-size: 0.95rem;
   color: var(--gray-800);
+}
+
+.local-serg {
+  width: 70%;
+  min-height: 400px;
+  margin-left: 200px;
+  border-radius: var(--radius);
+  border: 2px solid var(--green-pale);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 10px;
+  transition: all var(--transition);
+  animation: mapLoad 0.8s ease-out;
+}
+
+.local-serg:hover {
+  box-shadow: 0 20px 60px rgba(26,61,43,0.25);
+  border-color: var(--green-mid);
+}
+
+@keyframes mapLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .local-serg {
+    min-height: 380px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .local-serg {
+    min-height: 300px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+  }
 }
 
 .info-card a:hover { color: var(--green-mid); }
